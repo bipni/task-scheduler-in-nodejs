@@ -1,0 +1,7 @@
+POST http://localhost:3001/interval HTTP/1.1
+content-type: application/json
+
+{
+	"user": "user 1",
+	"interval": "00-00-00-01-05"
+}
