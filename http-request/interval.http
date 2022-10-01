@@ -3,5 +3,5 @@ content-type: application/json
 
 {
 	"user": "user 1",
-	"interval": "00-00-00-01-05"
+	"interval": "00-00-00-00-05"
 }

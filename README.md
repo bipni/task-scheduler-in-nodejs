@@ -18,7 +18,7 @@ npm run server
     * OS
 
 ## API
-In my project there are 2 API defines.
+In my project, there are 2 APIs defined.
 
 ```
 http://localhost:3001/interval
@@ -26,7 +26,7 @@ http://localhost:3001/timetoset
 ```
 
 ### Interval
-This API accepts a json object which schedule the task for a user in an interval of time.
+This API accepts a JSON object which schedules the task for a user in an interval of time.
 
 The request prototype is:
 ```
@@ -39,7 +39,7 @@ POST http://localhost:3001/interval
 ```
 
 ### Specific Time
-This API accepts a json object which schedule the task for a user at a particular time.
+This API accepts a JSON object which schedules the task for a user at a particular time.
 
 The request prototype is:
 ```
@@ -52,14 +52,14 @@ POST http://localhost:3001/timetoset
 ```
 
 ## Architecture and Explanation
-This project split up into 3 parts.
+This project consists of 3 parts.
 
 * Server
 * Scheduler
 * Database
 
 ### Server
-I have used Node JS Cluster module to create a master server and several worker servers. The number of worker servers depend on the number of CPU cores.
+I have used the Node JS Cluster module to create a master server and several worker servers. The number of worker servers depends on the number of CPU cores.
 
 * Master
     * Worker 1
@@ -68,10 +68,10 @@ I have used Node JS Cluster module to create a master server and several worker 
     * .
     * Worker n
 
-The Master process listening on a port (i.e. 3001) and takes the rquest and then distribute the request across the worker for further processing. If one worker is down due to overload or something else the master server creates a new worker. So that the server will always be up and can take the request. 
+The Master process listening on a port (i.e. 3001) and takes the request, and then distributes the request across the worker for further processing. If one worker is down due to overload or something else, the master server creates a new worker. So that the server will always be up and can take the request. 
 
 ### Database
-I have used MOngo DB as database. The request is stored in the database in order to use it later for other action to be completed if there is some.
+I have used Mongo DB as database. The request is stored in the database to use later if there are some other actions to be completed.
 
 ```
 DB Connection String: mongodb://localhost:27017
@@ -80,7 +80,7 @@ Collection Name: tasks
 ```
 
 ### Scheduler
-This task has been done by Node Cron. A scheduler module for Node JS. It has two function.
+This task has been done by Node Cron. A scheduler module for Node JS. It has two functions.
 
     addTaskByInterval(user, interval)
     addTaskByDate(user, timetoset)
